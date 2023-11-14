@@ -1,0 +1,28 @@
+<div class="container-fluid d-flex align-items-center justify-content-center">
+        <div class="column">
+                <div class="row justify-content-center">
+                        Welcome to Rick & morty api showcase my Pedro Otto.
+                </div>
+
+                <div *ngFor="let group of charGroup" class="row">
+
+                        <div *ngFor="let char of group" class="col p-2 g-col-6">
+                                <div class="row">
+                                        <div class="col">
+                                                <img class="img-thumbnail" src="{{char.image}}">
+                                        </div>
+                                        <div class="col">
+                                                {{char.name}} -- {{char.gender}}
+                                        </div>
+                                </div>
+
+                        </div>
+
+                </div>
+
+                <div class="row justify-content-center">
+                        <i class="material-symbols-outlined col">arrow_back</i>
+                        <i class="material-symbols-outlined col">arrow_forward</i>
+                </div>
+        </div>
+</div>
