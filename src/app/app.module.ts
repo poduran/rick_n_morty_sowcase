@@ -9,6 +9,7 @@ import { CharacterPageComponent } from './character-page/character-page.componen
 import { LocationPageComponent } from './location-page/location-page.component';
 import { EpisodePageComponent } from './episode-page/episode-page.component';
 import { HttpClientModule } from '@angular/common/http';
+import { PaginationMenuComponent } from './pagination-menu/pagination-menu.component';
 
 @NgModule({
   declarations: [
@@ -17,7 +18,8 @@ import { HttpClientModule } from '@angular/common/http';
     NavBarComponent,
     CharacterPageComponent,
     LocationPageComponent,
-    EpisodePageComponent
+    EpisodePageComponent,
+    PaginationMenuComponent
   ],
   imports: [
     HttpClientModule,

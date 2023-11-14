@@ -20,9 +20,16 @@
 
                 </div>
 
-                <div class="row justify-content-center">
-                        <i class="material-symbols-outlined col">arrow_back</i>
-                        <i class="material-symbols-outlined col">arrow_forward</i>
-                </div>
+                <!-- <ul class="pagination justify-content-center">
+                        <li class="page-item">
+                                <button> <span class="material-symbols-outlined"> arrow_back</span> </button>
+                        </li>
+                        
+                        <li class="page-item">
+                                <button> <span class="material-symbols-outlined"> arrow_forward</span> </button>
+                        </li>
+                </ul> -->
+
+                <app-pagination-menu [pages]="charPages" [selectedPageIn]="1" (selectedPage)="selectedPage($event)"></app-pagination-menu>
         </div>
 </div>

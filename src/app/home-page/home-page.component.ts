@@ -19,15 +19,24 @@ export class HomePageComponent {
 
           this.charGroup.push(grupo);
         }
+
+        for (let i = 0; i < dados.info.pages; i++) {
+          this.charPages.push(i);
+        }
+
       });
   }
-  
+
   private svc = inject(GlobalService);
 
   showCharacters?: CharacterInfo;
 
   charGroup: Result[][] = [];
+  charPages: number[] = [];
+
 
   ngOnInit(): void {
   }
+
+  selectedPage(page: number) { }
 }
