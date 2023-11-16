@@ -19,7 +19,7 @@ import { PaginationMenuComponent } from './pagination-menu/pagination-menu.compo
     CharacterPageComponent,
     LocationPageComponent,
     EpisodePageComponent,
-    PaginationMenuComponent
+    PaginationMenuComponent,
   ],
   imports: [
     HttpClientModule,

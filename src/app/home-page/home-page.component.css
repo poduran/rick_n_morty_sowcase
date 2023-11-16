@@ -1,0 +1,10 @@
+.displayArea{
+    /* background-color: aqua; */
+    margin-top: 2vh;
+    margin-bottom: 4vh;
+    height: 30vw;
+    overflow-y: auto;
+    overflow-x: hidden;
+    padding-left: 1vw;
+    padding-right: 1vw;
+}
