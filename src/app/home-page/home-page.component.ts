@@ -1,4 +1,4 @@
-import { Component, inject, OnInit } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { CharacterInfo, Result } from 'src/models/character-info';
 import { EpisodeInfo as epi, Result as epiRes } from 'src/models/episode-info';
 import { LocationInfo as loi, Result as loiRes } from 'src/models/location-info';
@@ -51,4 +51,16 @@ export class HomePageComponent {
 
   showEpisodes?: epi;
   epGroup: epiRes[][] = [];
+
+  handleEvent(nxt: boolean): void{
+    this.svc.getCharacter()
+      .subscribe((dados: CharacterInfo) => {
+        this.showCharacters = dados;
+        for (let index = 0; index < dados.results.length; index += 4) {
+          let grupo = dados.results.slice(index, index + 4);
+
+          this.charGroup.push(grupo);
+        }
+      });
+  }
 }

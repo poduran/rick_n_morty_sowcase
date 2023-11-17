@@ -2,26 +2,25 @@
         <div class="column">
                 <div class="row text-center justify-content-center mt-8">
                         <h1>
-                                Welcome to Rick & morty api showcase my Pedro Otto.
+                                Welcome to Rick & Morty api showcase my Pedro Otto.
                         </h1>
                 </div>
                 <div class="row text-center">
                         <h2>Characters</h2>
                 </div>
-                <div class="displayArea" id="displayChar">
+                <div class="displayArea">
                         <div *ngFor="let group of charGroup" class="row">
                                 <div *ngFor="let char of group" class="col p-2 g-col-6">
-                                        <div class="row">
-                                                <div class="col">
+                                        <div class="row align-items-center text-center">
+                                                <div class="col ">
                                                         <img class="img-thumbnail" src="{{char.image}}">
-                                                </div>
-                                                <div class="col">
-                                                        {{char.name}} -- {{char.gender}}
+                                                        <br>
+                                                        {{char.name}}
                                                 </div>
                                         </div>
                                 </div>
                         </div>
-                        <app-pagination-menu [hasPrev]="showCharacters?.info?.prev"
+                        <app-pagination-menu (emmitedEvent)="handleEvent($event)" [hasPrev]="showCharacters?.info?.prev"
                                 [hasNext]="showCharacters?.info?.next"></app-pagination-menu>
 
                 </div>

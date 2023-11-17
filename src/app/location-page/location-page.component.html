@@ -1,1 +1,25 @@
-<p>location-page works!</p>
+<div class="container-fluid d-flex align-items-center justify-content-center">
+    <div class="col">
+        <div *ngFor="let gp of loiGroup" class="row">
+            <div class="col-3 p-2 g-col-6" *ngFor="let lo of gp">
+                <div class="row">
+                    <div class="col">
+                        <img src="assets/IMG/planet.png" class="img-thumbnail">
+                    </div>
+                    <div class="col">
+                        Name: {{lo.name}} <br>
+                        Dimension: {{lo.dimension}}<br>
+                        Type: {{lo.type}}<br>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row text-center" *ngIf="!autoFeed">
+            <div class="col-12">
+                <button class=" btn btn-outline-dark" (click)="autoFeed = true; getMoreItens();">
+                    Load More
+                </button>
+            </div>
+        </div>
+    </div>
+</div>

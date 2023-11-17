@@ -1,12 +1,12 @@
 <div class="row justify-content-center align-items-center">
     <div class="col-5"></div>
     <div class="col-1 text-center">
-        <button type="button" class="btn btn-primary">
+        <button type="button" [disabled]="!hasPrev" (click)="emitEvent(false)" class="btn btn-primary">
             <span aria-hidden="true">&laquo;</span>
         </button>
     </div>
     <div class="col-1 text-center">
-        <button type="button" class="btn btn-primary">
+        <button type="button" [disabled]="!hasNext" (click)="emitEvent(true)" class="btn btn-primary">
             <span aria-hidden="true">&raquo;</span>
         </button>
     </div>

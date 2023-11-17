@@ -10,6 +10,7 @@ import { LocationPageComponent } from './location-page/location-page.component';
 import { EpisodePageComponent } from './episode-page/episode-page.component';
 import { HttpClientModule } from '@angular/common/http';
 import { PaginationMenuComponent } from './pagination-menu/pagination-menu.component';
+import { StatusBallComponent } from './status-ball/status-ball.component';
 
 @NgModule({
   declarations: [
@@ -20,6 +21,7 @@ import { PaginationMenuComponent } from './pagination-menu/pagination-menu.compo
     LocationPageComponent,
     EpisodePageComponent,
     PaginationMenuComponent,
+    StatusBallComponent,
   ],
   imports: [
     HttpClientModule,
