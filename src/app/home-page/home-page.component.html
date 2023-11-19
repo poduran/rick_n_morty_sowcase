@@ -2,56 +2,61 @@
         <div class="column">
                 <div class="row text-center justify-content-center mt-8">
                         <h1>
-                                Welcome to Rick & morty api showcase my Pedro Otto.
+                                Welcome to Rick & Morty api showcase my Pedro Otto.
                         </h1>
                 </div>
                 <div class="row text-center">
                         <h2>Characters</h2>
                 </div>
-                <div class="displayArea" id="displayChar">
-                        <div *ngFor="let group of charGroup" class="row">
+                <div class="displayArea">
+                        <!-- <div *ngFor="let group of charGroup" class="row">
                                 <div *ngFor="let char of group" class="col p-2 g-col-6">
-                                        <div class="row">
-                                                <div class="col">
+                                        <div class="row align-items-center text-center"
+                                                (click)="NavigateToChar(char.id.toString())">
+                                                <div class="col ">
                                                         <img class="img-thumbnail" src="{{char.image}}">
-                                                </div>
-                                                <div class="col">
-                                                        {{char.name}} -- {{char.gender}}
+                                                        <br>
+                                                        {{char.name}}
                                                 </div>
                                         </div>
                                 </div>
-                        </div>
-                        <app-pagination-menu [hasPrev]="showCharacters?.info?.prev"
-                                [hasNext]="showCharacters?.info?.next"></app-pagination-menu>
+                        </div> -->
 
+                        <app-character-page></app-character-page>
                 </div>
                 <div class="row text-center mt-8">
                         <h2>Locations</h2>
                 </div>
                 <div class="displayArea">
-                        <div *ngFor="let gp of loiGroup" class="row ">
+                        <!-- <div *ngFor="let gp of loiGroup" class="row ">
                                 <div *ngFor="let lo of gp" class="col p-2 g-col-6">
-                                        <div class="col">
-                                                <P>{{lo.name}} - {{lo.dimension}}</P>
+                                        <div class="row text-center" (click)="NavigateToLocation(lo.id.toString())">
+                                                <div class="col">
+                                                        <img src="assets/IMG/planet.png" class="img-thumbnail">
+                                                        <br>
+                                                        Name: {{lo.name}} <br>
+                                                </div>
                                         </div>
                                 </div>
-                        </div>
-                        <app-pagination-menu [hasPrev]="showLocations?.info?.prev"
-                                [hasNext]="showLocations?.info?.next"></app-pagination-menu>
+                        </div> -->
+                        <app-location-page></app-location-page>
                 </div>
                 <div class="row text-center mt-8">
                         <h2>Episodes</h2>
                 </div>
                 <div class="displayArea">
-                        <div *ngFor="let gp of epGroup" class="row">
+                        <!-- <div *ngFor="let gp of epGroup" class="row">
                                 <div *ngFor="let ep of gp" class="col p-2 g-col-6">
-                                        <div class="col">
-                                                <p>{{ep.name}} -- {{ep.episode}}</p>
+                                        <div class="row" (click)="NavigateToEpisode(ep.id.toString())">
+                                                <div class="col text-center">
+                                                        <img src="assets/IMG/episodes.svg" class="img-thumbnail">
+                                                        <br>
+                                                        {{ep.episode}} - {{ep.name}}
+                                                </div>
                                         </div>
                                 </div>
-                        </div>
-                        <app-pagination-menu [hasPrev]="showEpisodes?.info?.prev"
-                                [hasNext]="showEpisodes?.info?.next"></app-pagination-menu>
+                        </div> -->
+                        <app-episode-page></app-episode-page>
                 </div>
         </div>
 </div>

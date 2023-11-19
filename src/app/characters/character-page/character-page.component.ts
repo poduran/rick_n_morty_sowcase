@@ -1,4 +1,5 @@
 import { Component, inject, HostListener } from '@angular/core';
+import { Router } from '@angular/router';
 import { CharacterInfo, Result } from 'src/models/character-info';
 import { GlobalService } from 'src/service/global.service';
 
@@ -8,7 +9,7 @@ import { GlobalService } from 'src/service/global.service';
   styleUrls: ['./character-page.component.css']
 })
 export class CharacterPageComponent {
-  constructor() { this.getChars(); }
+  constructor(private router: Router) { this.getChars(); }
 
   getMoreItens() {
     if (this.autoFeed && this.showCharacters?.info.next) {
@@ -27,6 +28,10 @@ export class CharacterPageComponent {
           this.charGroup.push(grupo);
         }
       });
+  }
+
+  NavigateTo(charId: string): void {
+    this.router.navigate(['characterInfo', charId]);
   }
 
   @HostListener('window:scroll', ['$event'])

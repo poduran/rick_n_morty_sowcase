@@ -2,7 +2,7 @@
     <div class="col">
         <div *ngFor="let gp of charGroup" class="row">
             <div *ngFor="let ch of gp" class="col-3 p-2 g-col-6">
-                <div class="row">
+                <div class="row" (click)="NavigateTo(ch.id.toString())">
                     <div class="col">
                         <img class="img-thumbnail" src="{{ch.image}}">
                     </div>

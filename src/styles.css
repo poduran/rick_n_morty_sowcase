@@ -27,3 +27,8 @@ body {
 ::-ms-track {
     background-color: #f1f1f1;
 }
+
+.special-thumb{
+    width: 40vw;
+    height: auto;
+}

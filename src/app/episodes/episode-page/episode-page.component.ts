@@ -1,32 +1,37 @@
-import { Component, inject, HostListener } from '@angular/core';
-import { LocationInfo, Result } from 'src/models/location-info';
+import { Component, HostListener, inject } from '@angular/core';
+import { Router } from '@angular/router';
+import { EpisodeInfo, Result } from 'src/models/episode-info';
 import { GlobalService } from 'src/service/global.service';
 
 @Component({
-  selector: 'app-location-page',
-  templateUrl: './location-page.component.html',
-  styleUrls: ['./location-page.component.css']
+  selector: 'app-episode-page',
+  templateUrl: './episode-page.component.html',
+  styleUrls: ['./episode-page.component.css']
 })
-export class LocationPageComponent {
-  constructor() { this.getLocations(); }
+export class EpisodePageComponent {
 
-  getLocations() {
-    this.svc.getLocation().subscribe((dados: LocationInfo) => {
-      this.showLocations = dados;
+  constructor(private router: Router) { this.getEpisodes(); }
+
+  getMoreItens() {
+    if (this.autoFeed && this.showEpisodes?.info.next) {
+      this.svc.filters.episodeFilter.page = this.svc.filters.episodeFilter.page! + 1;
+      this.getEpisodes();
+    }
+  }
+
+  getEpisodes() {
+    this.svc.getEpisode().subscribe((dados: EpisodeInfo) => {
+      this.showEpisodes = dados;
 
       for (let i = 0; i < dados.results.length; i += 4) {
         let grupo = dados.results.slice(i, i + 4);
-
-        this.loiGroup.push(grupo);
+        this.epGroup.push(grupo);
       }
     });
   }
 
-  getMoreItens() {
-    if (this.autoFeed && this.showLocations?.info.next) {
-      this.svc.filters.locFilter.page = this.svc.filters.locFilter.page! + 1;
-      this.getLocations();
-    }
+  NavigateTo(charId: string): void {
+    this.router.navigate(['episodeInfo', charId]);
   }
 
   @HostListener('window:scroll', ['$event'])
@@ -46,7 +51,7 @@ export class LocationPageComponent {
 
   private svc = inject(GlobalService);
 
-  showLocations?: LocationInfo;
-  loiGroup: Result[][] = [];
+  showEpisodes?: EpisodeInfo;
+  epGroup: Result[][] = [];
   autoFeed: boolean = false;
 }

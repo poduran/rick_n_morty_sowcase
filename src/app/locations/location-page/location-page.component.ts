@@ -1,4 +1,5 @@
 import { Component, inject, HostListener } from '@angular/core';
+import { Router } from '@angular/router';
 import { LocationInfo, Result } from 'src/models/location-info';
 import { GlobalService } from 'src/service/global.service';
 
@@ -8,7 +9,7 @@ import { GlobalService } from 'src/service/global.service';
   styleUrls: ['./location-page.component.css']
 })
 export class LocationPageComponent {
-  constructor() { this.getLocations(); }
+  constructor(private router: Router) { this.getLocations(); }
 
   getLocations() {
     this.svc.getLocation().subscribe((dados: LocationInfo) => {
@@ -27,6 +28,10 @@ export class LocationPageComponent {
       this.svc.filters.locFilter.page = this.svc.filters.locFilter.page! + 1;
       this.getLocations();
     }
+  }
+
+  NavigateTo(charId: string): void {
+    this.router.navigate(['locationInfo', charId]);
   }
 
   @HostListener('window:scroll', ['$event'])

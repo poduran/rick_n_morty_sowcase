@@ -1,0 +1,35 @@
+<div class="container-fluid d-flex align-items-center justify-content-center">
+    <div class="column">
+        <div class="row text-center justify-content-center mt-16">
+            <div class="col-6">
+                <img src="{{info?.image}}" class="img-thumbnail special-thumb">
+            </div>
+            <div class="col-6 text-start">
+                <p class="fw-bold">Name:</p>
+                {{info?.name}} <br>
+
+                <p class="fw-bold">Gender:</p>
+                {{info?.gender}} <br>
+
+                <p class="fw-bold">Origin:</p>
+                {{info?.origin?.name}} <br>
+
+                <p class="fw-bold">Status:</p>
+                {{info?.status}} <br>
+
+                <p class="fw-bold">Create Date:</p>
+                {{info?.created | date: 'yyyy/MM/dd - HH:mm:ss'}} <br>
+
+                <p class="fw-bold">Origin:</p>
+                {{info?.location?.name}} <br>
+
+                <p class="fw-bold">Specie:</p>
+                {{info?.species}} <br>
+
+                <!-- <p class="fw-bold">type:</p>
+                {{info?.type}} <br> -->
+
+            </div>
+        </div>
+    </div>
+</div>
