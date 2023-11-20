@@ -4,7 +4,7 @@
             <div *ngFor="let ep of gp" class="col-3 p-2 g-col-6">
                 <div class="row" (click)="NavigateTo(ep.id.toString())">
                     <div class="col">
-                        <img src="assets/IMG/episodes.svg" class="img-thumbnail">
+                        <img src="../../../assets/IMG/episodes.svg" class="img-thumbnail">
                     </div>
                     <div class="col">
                         <div class="row fw-bold">
@@ -22,7 +22,7 @@
                 </div>
             </div>
         </div>
-        <div class="row text-center" *ngIf="!autoFeed">
+        <div class="row text-center">
             <div class="col-12">
                 <button class="btn btn-outline-dark" (click)="autoFeed = true; getMoreItens();">
                     Load More

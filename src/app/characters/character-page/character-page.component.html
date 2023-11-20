@@ -1,37 +1,104 @@
 <div class="container-fluid d-flex align-items-center justify-content-center">
     <div class="col">
-        <div *ngFor="let gp of charGroup" class="row">
-            <div *ngFor="let ch of gp" class="col-3 p-2 g-col-6">
-                <div class="row" (click)="NavigateTo(ch.id.toString())">
-                    <div class="col">
-                        <img class="img-thumbnail" src="{{ch.image}}">
+        <div class="row text-center">
+            <div class="row">
+
+                <div class="col">
+                    <div class="input-group">
+                        <span class="input-group-text" id="addon-wrapping">Name:</span>
+                        <input [(ngModel)]="filterName" (input)="onInputChange()" type="text" class="form-control" placeholder="Rick Sanchez">
+                        <button class="btn btn-outline-danger" (click)="clearFilter(0)">
+                            <span class="material-symbols-outlined">close</span>
+                        </button>
                     </div>
-                    <div class="col">
-                        <div class="row fw-bold">
-                            {{ch.name}}
+                </div>
+                <div class="col">
+                    <div class="input-group">
+                        <span class="input-group-text" id="addon-wrapping">Status:</span>
+                        <select class="form-select" [(ngModel)]="filterStatus" (change)="selectedChange()">
+                            <option *ngFor="let op of enumToArray(statusEnum)" [value]="op">{{op}}</option>
+                        </select>
+                        <button class="btn btn-outline-danger">
+                            <span class="material-symbols-outlined">close</span>
+                        </button>
+                    </div>
+                </div>
+
+                <div class="col">
+                    <div class="input-group">
+                        <span class="input-group-text" id="addon-wrapping">Species:</span>
+                        <select class="form-select" [(ngModel)]="filterSpecies" (change)="selectedChange()">
+                            <option *ngFor="let op of enumToArray(speciesEnum)" [value]="op">{{op}}</option>
+                        </select>
+                        <button class="btn btn-outline-danger">
+                            <span class="material-symbols-outlined">close</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <div class="row mt-2">
+                <div class="col">
+                    <div class="input-group">
+                        <span class="input-group-text" id="addon-wrapping">Type:</span>
+                        <input type="text" [(ngModel)]="filterType" class="form-control" placeholder="">
+                        <button class="btn btn-outline-danger" (click)="clearFilter(1)">
+                            <span class="material-symbols-outlined">close</span>
+                        </button>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="input-group">
+                        <span class="input-group-text" id="addon-wrapping">Gender:</span>
+                        <select class="form-select" [(ngModel)]="filterGender" (change)="selectedChange()">
+                            <option *ngFor="let op of enumToArray(genderEnum)" [value]="op">{{op}}</option>
+                        </select>
+                        <button class="btn btn-outline-danger">
+                            <span class="material-symbols-outlined">close</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <div class="col mt-2 align-items-center justify-content-center">
+                <button class="btn btn-outline-danger" (click)="clearAllFilters()">Clear all filters
+                    <span class="material-symbols-outlined"> clear_all </span>
+                </button>
+            </div>
+        </div>
+        <div class="col">
+            <div *ngFor="let gp of charGroup" class="row">
+                <div *ngFor="let ch of gp" class="col-3 p-2 g-col-6">
+                    <div class="row" (click)="NavigateTo(ch.id.toString())">
+                        <div class="col">
+                            <img class="img-thumbnail" src="{{ch.image}}">
                         </div>
-                        <div class="row">
-                            <div class="col">
-                                {{ch.species}} - {{ch.status}} <app-status-ball [status]="ch.status"></app-status-ball>
-                            </div>
-                        </div>
-                        <div class="row">
+                        <div class="col">
                             <div class="row fw-bold">
-                                Last known location: :
+                                {{ch.name}}
                             </div>
-                            <div class="col">
-                                {{ch.origin.name}}
+                            <div class="row">
+                                <div class="col">
+                                    {{ch.species}} - {{ch.status}} <app-status-ball
+                                        [status]="ch.status"></app-status-ball>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="row fw-bold">
+                                    Last known location: :
+                                </div>
+                                <div class="col">
+                                    {{ch.origin.name}}
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
-        <div class="row text-center" *ngIf="!autoFeed">
-            <div class="col-12">
-                <button class="btn btn-outline-dark" (click)="autoFeed = true; getMoreItens(); ">
-                    Load More
-                </button>
+            <div class="row text-center" *ngIf="showCharacters?.info?.next">
+                <div class="col-12">
+                    <button class="btn btn-outline-dark" (click)="autoFeed = true; getMoreItens(); ">
+                        Load More
+                    </button>
+                </div>
             </div>
         </div>
     </div>

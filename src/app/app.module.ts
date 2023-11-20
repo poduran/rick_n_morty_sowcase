@@ -14,6 +14,7 @@ import { StatusBallComponent } from './miscellaneous/status-ball/status-ball.com
 import { SingleCharAllInfoComponent } from './characters/single-char-all-info/single-char-all-info.component';
 import { SingleEpisodeAllInfoComponent } from './episodes/single-episode-all-info/single-episode-all-info.component';
 import { SingleLocationAllInfoComponent } from './locations/single-location-all-info/single-location-all-info.component';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -32,7 +33,8 @@ import { SingleLocationAllInfoComponent } from './locations/single-location-all-
   imports: [
     HttpClientModule,
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
